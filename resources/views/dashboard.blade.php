@@ -182,7 +182,7 @@
         <a class="nav-link active" href="{{ route('dashboard') }}">▦ &nbsp; Dashboard</a>
 
         <div class="nav-title">MANAJEMEN DATA</div>
-        <a class="nav-link" href="#data-siswa">♙ &nbsp; Data Siswa</a>
+        <a class="nav-link" href="{{ route('admin.siswa.index') }}">♙ &nbsp; Data Siswa</a>
         <a class="nav-link" href="#data-guru">♙ &nbsp; Data Guru</a>
         <a class="nav-link" href="#data-pengawas">♙ &nbsp; Data Pengawas</a>
         <a class="nav-link" href="#data-kelas">▤ &nbsp; Data Kelas</a>
@@ -260,7 +260,7 @@
                 <div class="panel">
                     <h3>Akses Cepat</h3>
                     <div class="panel-desc">Menu pengelolaan sistem administrator.</div>
-                    <div class="quick-link"><span>Kelola Data Siswa</span><span class="coming">SEGERA</span></div>
+                    <a class="quick-link" href="{{ route('admin.siswa.index') }}" style="text-decoration:none"><span>Kelola Data Siswa</span><span>BUKA →</span></a>
                     <div class="quick-link"><span>Kelola Data Guru</span><span class="coming">SEGERA</span></div>
                     <div class="quick-link"><span>Buat Jadwal Ujian</span><span class="coming">SEGERA</span></div>
                     <div class="quick-link"><span>Monitoring Ujian</span><span class="coming">SEGERA</span></div>
