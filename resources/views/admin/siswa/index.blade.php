@@ -19,6 +19,13 @@
         th,td{padding:13px 10px;border-bottom:1px solid #e2e8f0;text-align:left}
         th{background:#f8fafc;color:#475569}
         .alert{padding:12px;background:#dcfce7;color:#166534;border-radius:7px;margin-bottom:15px}
+        .filters{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0}
+        .filters input,.filters select{padding:10px 12px;border:1px solid #cbd5e1;border-radius:7px;font-size:14px;min-width:180px}
+        .filters button{padding:10px 15px;border:0;border-radius:7px;background:#1d4ed8;color:white;cursor:pointer}
+        .filters a{padding:10px 13px;border-radius:7px;background:#e2e8f0;color:#334155;text-decoration:none;font-size:14px}
+        .status{display:inline-block;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}
+        .active-status{background:#dcfce7;color:#166534}
+        .inactive-status{background:#fee2e2;color:#991b1b}
         .actions{display:flex;gap:7px;align-items:center}
         .actions form{margin:0}
         @media(max-width:700px){body{padding:12px}.card{overflow-x:auto}table{min-width:750px}}
@@ -40,6 +47,17 @@
         @endif
 
         <div class="muted">Daftar peserta didik yang terdaftar dalam sistem.</div>
+
+        <form class="filters" method="GET" action="{{ route('admin.siswa.index') }}">
+            <input type="search" name="q" value="{{ $search }}" placeholder="Cari NISN, NIS, atau nama siswa...">
+            <select name="status">
+                <option value="">Semua Status</option>
+                <option value="aktif" @selected($status === 'aktif')>Aktif</option>
+                <option value="nonaktif" @selected($status === 'nonaktif')>Nonaktif</option>
+            </select>
+            <button type="submit">Cari</button>
+            <a href="{{ route('admin.siswa.index') }}">Reset</a>
+        </form>
 
         <table>
             <thead>
@@ -63,7 +81,7 @@
                         <td>{{ $siswa->nama_lengkap }}</td>
                         <td>{{ $siswa->jenis_kelamin }}</td>
                         <td>-</td>
-                        <td>{{ ucfirst($siswa->status) }}</td>
+                        <td><span class="status {{ $siswa->status === 'aktif' ? 'active-status' : 'inactive-status' }}">{{ ucfirst($siswa->status) }}</span></td>
                         <td>
                             <div class="actions">
                                 <a href="{{ route('admin.siswa.show', $siswa->id) }}" class="btn edit">Detail</a>
