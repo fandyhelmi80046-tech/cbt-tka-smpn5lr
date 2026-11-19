@@ -66,6 +66,7 @@
                         <td>{{ ucfirst($siswa->status) }}</td>
                         <td>
                             <div class="actions">
+                                <a href="{{ route('admin.siswa.show', $siswa->id) }}" class="btn edit">Detail</a>
                                 <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn edit">Edit</a>
                                 <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST"
                                       onsubmit="return confirm('Yakin ingin menghapus data siswa ini?')">
