@@ -21,12 +21,10 @@
         <div class="brand">CBT</div>
         <h1>CBT TKA</h1>
         <p class="sub">SMP Negeri 5 Langke Rembong<br>Silakan masuk menggunakan akun Anda.</p>
-
         @if ($errors->any())
             <div class="error">{{ $errors->first() }}</div>
         @endif
-
-        <form method="POST" action="{{ route('login.store') }}">
+        <form method="POST" action="/login">
             @csrf
             <label for="email">Email</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username">
