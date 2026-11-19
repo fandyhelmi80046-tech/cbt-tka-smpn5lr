@@ -227,7 +227,7 @@
             <section class="cards">
                 <div class="stat-card">
                     <div class="stat-label">Total Siswa</div>
-                    <div class="stat-value">0</div>
+                    <div class="stat-value">{{ $totalSiswa }}</div>
                     <div class="stat-note">Data peserta terdaftar</div>
                 </div>
                 <div class="stat-card">
