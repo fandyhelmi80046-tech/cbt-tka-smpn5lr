@@ -18,7 +18,7 @@
 <body>
 <header>
     <strong>CBT TKA · SMPN 5 Langke Rembong</strong>
-    <form method="POST" action="{{ route('logout') }}">@csrf<button type="submit">Keluar</button></form>
+    <form method="POST" action="/logout">@csrf<button type="submit">Keluar</button></form>
 </header>
 <main>
     <section class="welcome">
