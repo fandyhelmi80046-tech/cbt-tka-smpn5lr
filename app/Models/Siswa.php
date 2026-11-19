@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
+    protected function casts(): array
+    {
+        return [
+            'tanggal_lahir' => 'date',
+        ];
+    }
+
     protected $fillable = [
         'nisn',
         'nis',
